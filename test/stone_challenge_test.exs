@@ -6,7 +6,7 @@ defmodule StoneChallengeTest do
   import EmailsHelper
 
   test "main function returns a list" do
-    assert is_list(StoneChallenge.main())
+    assert is_map(StoneChallenge.main())
   end
 
   test "calculate_items_sum is calculating correctly" do
@@ -88,11 +88,9 @@ defmodule StoneChallengeTest do
       |> divide_total(length(emails))
 
     result = attach_distribution_to_emails(emails, distribution_list)
-    assert length(result) === length(emails)
+    assert length(Map.keys(result)) === length(emails)
     # verify if all entries contains a email
-    assert Enum.all?(result, fn s ->
-             Map.keys(s)
-             |> Enum.all?(fn email -> String.contains?(email, "@") end)
-           end)
+    assert Map.keys(result)
+           |> Enum.all?(fn email -> String.contains?(email, "@") end)
   end
 end
