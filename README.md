@@ -6,17 +6,17 @@ Primeira etapa do processo seletivo para o programa de formação em Elixir da S
 
 Imagine uma lista de compras. Ela possui:
 
-- Itens
-- Quantidade de cada item
-- Preço por unidade/peso/pacote de cada item
+- Itens;
+- Quantidade de cada item;
+- Preço por unidade/peso/pacote de cada item.
 
 Desenvolva uma função (ou método) que irá receber uma lista de compras (como a detalhada acima) e uma lista de e-mails. Aqui, cada e-mail representa uma pessoa.
 
 A aplicação deve:
 
-- Calcular a soma dos valores, ou seja, multiplicar o preço de cada item por sua quantidade e somar todos os itens
-- Dividir o valor de forma igual entre a quantidade de e-mails
-- Retornar um mapa/dicionário onde a chave será o e-mail e o valor será quanto ele deve pagar nessa conta
+- Calcular a soma dos valores, ou seja, multiplicar o preço de cada item por sua quantidade e somar todos os itens;
+- Dividir o valor de forma igual entre a quantidade de e-mails;
+- Retornar um mapa/dicionário onde a chave será o e-mail e o valor será quanto ele deve pagar nessa conta.
 
 ## Instalação
 
@@ -33,17 +33,17 @@ Caso deseje executar os testes, você deverá executar o seguinte comando:
 
 ##  Solução
 
-Para a geração de itens foi construído uma função que recebe o tamanho da lista desejada e gera itens com quantidade e preço aleatórios. O mesmo foi feito para geração dos email, uma função que recebe o tamanho da lista e gera esses emails utilizando o padrão `user_email_1@example.com`, onde o número vai sendo incrementado a cada novo email gerado.
+Para a geração de itens, foi construído uma função que recebe o tamanho da lista desejada e gera itens com quantidade e preço aleatórios. Para geração dos e-mail foi feito algo similar, uma função que recebe o tamanho da lista e gera esses e-mails utilizando o padrão `user_email_1@example.com`, em que o número vai sendo incrementado a cada novo e-mail gerado.
 
 No cálculo do valor total dos itens foi necessário percorrer a lista e multiplicar o valor de cada item pela sua quantidade.
 
-Para dividir o valor de forma igual entre os emails, é realizada uma checagem que verifica se a divisão é inteira, ou seja, se o valor total dos itens dividido pela quantidade de emails não tem resto.
+Para dividir o valor de forma igual entre os e-mails, é realizada uma checagem que verifica se a divisão é inteira, ou seja, se o valor total dos itens dividido pela quantidade de e-mails não tem resto.
 
-- Caso não exista resto da divisão, significa que cada email recebe o valor dos itens dividido pela quantidade de emails. 
+- Caso não exista resto da divisão, significa que cada e-mail recebe o valor dos itens dividido pela quantidade de e-mails. 
 
-- Caso exista resto, cada email recebe o quociente da divisão. A partir dai é feita um distribuição de forma circular do resto, até que não haja mais resto para distribuir. Dessa forma, teremos uma lista com emails que têm o valor do quociente, enquanto que a outra parte ficará com o valor do quociente + 1.
+- Caso exista resto, cada e-mail recebe o quociente da divisão. A partir dai é feita um distribuição de forma circular do resto, até que não haja mais resto para distribuir. Dessa forma, teremos uma lista com e-mails que têm o valor do quociente, enquanto que a outra parte ficará com o valor do quociente + 1.
 
-Por fim, o Mapa retornado faz tem como chave o email e como valor o que deve ser pago.
+Por fim, o Mapa retornado faz tem como chave o e-mail e como valor o que deve ser pago.
 
 ## Possíveis Modificações
 
